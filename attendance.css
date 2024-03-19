@@ -1,0 +1,148 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0; /* Add padding to the body */
+    background-color: #f5f5f5;
+    overflow-x: hidden; /* Prevent horizontal scrollbar */
+    min-width: 500px;
+  
+}
+
+.container {
+    min-height: 100vh;
+    max-width: 100%; /* Adjust the maximum width as needed */
+    min-width: 500px;
+    margin: 0 auto; /* Center the container horizontally */
+    padding: 20px; /* Add padding to the container */
+    background-color: white; /* Set background color */
+    border-radius: 8px; /* Add border radius for rounded corners */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add a subtle box shadow for depth */
+}
+
+
+h1 {
+    justify-content: center;
+    text-align: center;
+    color: white;
+    line-height: 100px;
+    font-family: "Poppins", sans-serif;
+    font-weight: 600 ;
+    margin-bottom: 20px;
+    background-color: #000066;
+    border-radius: 5px;
+}
+
+.attendance-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px; /* Adjust spacing between controls and table */
+    overflow-x: auto; /* Add horizontal scrollbar when necessary */
+}
+
+.attendance-table th,
+.attendance-table td {
+    border: 1px solid rgb(141, 153, 173);
+    padding: 10px;
+    text-align: center;
+    font-size: 16px; /* Set font size for table cells */
+}
+
+.attendance-table th {
+    font-family: 'Poppins', sans-serif; /* Use Poppins font for table headers */
+    font-weight: 500; 
+    background-color: #000066;
+    color: white;
+}
+
+.attendance-table tbody tr {
+    color: #000066;
+    font-family: inherit; /* Inherit font family */
+    font-size: inherit;
+    height: 50px;
+}
+
+.attendance-table td:nth-child(2) {
+    font-family: 'Poppins', sans-serif; /* Set font family */
+    font-size: 16px; 
+    width: 100px; /* Adjust width for date column */
+}
+
+.attendance-table td:nth-child(3) {
+    font-family: 'Poppins', sans-serif; /* Set font family */
+    font-size: 16px; 
+    width: 80px; /* Adjust width for time column */
+}
+
+.attendance-table td:nth-child(5) { 
+    width: 40px; /* Adjust width for checkbox column */
+}
+
+.attendance-table td:nth-child(4) input[type="text"] {
+        font-family: 'Poppins', sans-serif; /* Set font family */
+        font-size: 16px; /* Set font size */
+        width: calc(100% - 40px); /* Adjust width for topic discussed column */
+    /* Subtract width of checkbox column to make space for checkbox */
+}
+
+.attendance-table tbody tr input[type="date"],
+.attendance-table tbody tr input[type="time"],
+.attendance-table tbody tr input[type="text"] {
+    border: none; /* Remove border from date, time, and text inputs */
+    background: none; 
+    text-align: inherit;
+    font-family: inherit; /* Inherit font family */
+    font-size: inherit;
+    color: inherit;
+}
+
+.controls {
+    font-family: 'Poppins', sans-serif;
+    flex-wrap: nowrap; 
+    display: flex;
+    justify-content: space-between; /* Distribute space evenly between child elements */
+    align-items: center; /* Vertically center child elements */
+}
+
+.controls input[type="text"] {
+    padding: 8px 10px; /* Adjust padding */
+    border-radius: 5px;
+    border: 1px solid #000066;
+    margin-right: 10px; /* Add margin to the right of the search bar */
+    font-family: 'Poppins', sans-serif; /* Set font family */
+    font-size: 16px; /* Set font size */
+}
+
+.controls input[type="text"]::placeholder {
+    font-family: 'Poppins', sans-serif; /* Set font family */
+    font-size: 16px; /* Set font size */
+}
+
+.controls button {
+    padding: 8px 20px; /* Add padding to buttons */
+    border-radius: 5px;
+    border: none;
+    background-color: #000066;
+    color: white;
+    cursor: pointer;
+    font-family: 'Poppins', sans-serif; /* Set font family for buttons */
+    font-size: 16px; /* Set font size for buttons */
+}
+
+.controls button:first-child {
+    margin-right: 10px; /* Add margin to the right of the first button */
+}
+
+.controls button:last-child {
+    margin-left: 10px; /* Add margin to the left of the last button */
+}
+
+.controls button:hover {
+    background-color: #004080;
+}
+@media screen and (max-width: 768px) {
+   
+    .attendance-table td:nth-child(2),
+    .attendance-table td:nth-child(3) {
+        width: 80px; /* Adjust width for date and time columns on smaller screens */
+    }
+}
