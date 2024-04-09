@@ -18,56 +18,9 @@
             font-family: 'Poppins', sans-serif;
         }
 
-        header {
-            background-color: #ffffff; /* White color */
-            color: #000000; /* Black color */
-            padding: 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            z-index: 1000;
-            height: 60px; /* Same height as original */
-            padding-left: 30px; /* Adjusted padding */
-            padding-right: 30px; /* Adjusted padding */
-        }
-
-        .logo img {
-            max-width: 100px;
-        }
-
-        nav ul {
-            list-style-type: none;
-            margin: 0;
-            padding: 0;
-            display: flex;
-        }
-
-        nav ul li {
-            margin-right: 20px;
-        }
-
-        nav ul li a {
-            color: #000000; /* Black color */
-            text-decoration: none;
-        }
-
         main {
-            margin-top: 80px; /* Adjusted margin to accommodate fixed header */
+            margin-top: 20px; /* Adjusted margin to move student details up */
             padding: 20px;
-        }
-
-        footer {
-            background-color: #f8f9fa; /* Light gray color */
-            padding: 20px;
-            text-align: center;
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            width: 100%;
         }
 
         @media only screen and (max-width: 768px) {
@@ -97,30 +50,15 @@
             font-weight: bold;
             color: #ffffff;
         }
+
+        .student-info {
+            margin-bottom: 20px; /* Adjusted margin to create space between student details and the table */
+        }
     </style>
 </head>
 <body>
-    <header>
-        <div class="logo">
-            <img src="GidsPro.png" alt="Logo">
-        </div>
-        <nav>
-            <ul>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#details">Details</a></li>
-                <li><a href="#academics">Academics</a></li>
-                <li><a href="#attendance">Attendance</a></li>
-                <li><a href="#support">Student Support</a></li>
-            </ul>
-        </nav>
-    </header>
-
-    <main id="academics-page">
+    <main>
         <section id="student-details-academics">
-            <h2>Student Details</h2>
-            <div class="student-id">
-                <img src="https://example.com/student_id_photo.jpg" alt="Student ID">
-            </div>
             <div class="student-info">
                 <h3>Student Name</h3>
                 <p>Student's Class / Grade</p>
@@ -178,8 +116,7 @@
         <!-- Add more academic content here. -->
 
     </main>
-    <footer>
-        <p>&copy; 2023 Education Center. Contact us for support.</p>
-    </footer>
+
 </body>
 </html>
+
