@@ -1,1 +1,142 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+  background-color: #f0f0f0;
+  color: #000066;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box; /* Ensures padding is included in the element's total width and height */
+}
+
+/* Styling the main container */
+.container {
+  width: calc(100% - 40px); /* Adjust width as before */
+  max-width: 1200px; /* Limit maximum width */
+  margin: 50px auto;
+  padding: 20px;
+  display: flex;
+  flex-direction: column; /* Stack children vertically */
+}
+
+/* Styling the right container */
+.right-container {
+  width: 100%; /* Ensure full width */
+  padding: 20px;
+  border-radius: 8px;
+  background-color: white;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Styling the left container */
+.left-container {
+  display: flex; /* Aligns children side by side */
+  justify-content: space-between; /* Distributes space between and around content items */
+  align-items: flex-start; /* Aligns items to start of container */
+  margin-bottom: 60px;
+  width: 100%;
+  padding: 20px;
+  border-radius: 8px;
+  background-color: white;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.profile-info {
+  flex: 3; /* Takes up more space as compared to the profile picture upload section */
+}
+
+.profile-pic-container {
+  margin-top: 15px;
+  position: relative;
+  width: 200px; /* Adjust based on your requirements */
+  height: 200px; /* Adjust based on your requirements */
+  border-radius: 50%;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: filter 0.3s ease; /* Smooth transition for hover effect */
+}
+
+#profile-picture-preview {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.profile-pic-upload {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  z-index: 1; /* Ensure the input is clickable */
+}
+
+.edit-label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white background */
+  font-size: 12px;
+  color: #000066;
+  opacity: 0; /* Initially hidden */
+  transition: opacity 0.3s ease; /* Smooth transition for visibility */
+  
+}
+
+.profile-pic-container:hover .edit-label {
+  opacity: 1; /* Show label on hover */
+  cursor: pointer;
+}
+
+
+
+
+/* Adjustments might be needed based on the overall design */
+.profile-pic-upload img {
+  border-radius: 50%; /* Creates a circle shape */
+  max-height: 100px; /* Adjust based on your content size */
+  max-width: 100px; /* Maintains aspect ratio */
+  width: auto; /* Ensures the image's width is auto-adjusted */
+  height: auto; /* Maintains the image's aspect ratio */
+  object-fit: cover; /* Ensures the image covers the area without distorting */
+  border: 3px solid #ddd; /* Optional: adds a border around the image */
+  margin-top: 10px; /* Adds some space above the image */
+}
+
+
+/* Styling for student list and links remains unchanged */
+.student-list {
+  margin-top: 20px;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+li {
+  margin-bottom: 10px;
+}
+
+a {
+  text-decoration: none;
+  color: #333;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: #007bff;
+}
 
