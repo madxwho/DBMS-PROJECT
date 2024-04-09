@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+<title>Registration Form with Validation</title>
+<style>
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #ffffff;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+form {
+    width: 400px; /* Reduced width */
+    height: 600px;
+    padding: 40px 40px; /* Reduced padding */
+    border-radius: 5px;
+    background-color: white;
+    text-align: center;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1); /* Removed drop shadow */
+}
+h2 {
+    text-align: center;
+    color: #000066; /* Blue color */
+}
+label {
+    color: #000066;
+    display: block;
+    margin: 10px 0 5px;
+    text-align: left; /* Align input titles to the left */
+}
+input, select {
+    width: 100%;
+    padding: 10px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 1px solid black;
+    border-radius: 3px;
+}
+button {
+    background-color: #000066; /* Blue color */
+    color: white;
+    font-size: 16px;
+    padding: 15px 17px; 
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    margin-top: 15px;
+}
+button:hover {
+    background-color: #0056b3; /* Darker shade of blue */
+}
+.error {
+    color: red;
+    margin-top: 5px;
+}
+#registrationDetails {
+    color: #000000;
+    display: none;
+    margin-top: 20px;
+    padding: 10px;
+    border: 1px solid #000000;
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.9);
+}
+</style>
+</head>
+<body>
+<form id="Sign in" onsubmit="validateForm(event)">
+<h2>Create a new account</h2>
+<p style="text-align: center; color: #000066;">Already registered? <a href="#">Login</a></p>
+<label for="Studentid">ID</label>
+<input type="text" id="Studentid" name="Studentid" pattern="\d{7,8}" required>
+<label for="Name">NAME</label>
+<input type="text" id="firstName" name="firstName" required>
+<label for="email">EMAIL</label>
+<input type="email" id="email" name="email" required>
+<label for="Password">PASSWORD</label>
+<input type="password" id="Password" name="Password" pattern="(?=.*\d)(?=.*[A-Z]).{5,}" title="Password must contain at least one capital letter, one number, and be at least 5 characters long" required>
+<label for="confirmPassword">CONFIRM PASSWORD</label>
+<input type="password" id="confirmPassword" name="confirmPassword" required>
+<button type="submit">Submit</button>
+</form>
+<div id="registrationDetails">
+<h2>Registration Details</h2>
+<p><strong>ID:</strong> <span id="displayStudentId"></span></p>
+<p><strong>Name:</strong> <span id="displayFirstName"></span></p>
+<p><strong>Email:</strong> <span id="displayEmail"></span></p>
+<p><strong>Password:</strong> <span id="displayPassword"></span></p>
+</div>
+
+<script>
+function validateForm(event) {
+    var password = document.getElementById("Password").value;
+    var confirmPassword = document.getElementById("confirmPassword").value;
+    var uppercaseRegex = /[A-Z]/;
+    var numberRegex = /\d/;
+    
+    if (!uppercaseRegex.test(password) || !numberRegex.test(password) || password.length < 5) {
+        event.preventDefault();
+        alert("Password must contain at least one capital letter, one number, and be at least 5 characters long");
+    } else if (password !== confirmPassword) {
+        event.preventDefault();
+        alert("Passwords do not match");
+    } else {
+        var firstName = document.getElementById("firstName").value;
+        var email = document.getElementById("email").value;
+        var studentId = document.getElementById("Studentid").value;
+        var registrationDetails = document.getElementById("registrationDetails");
+
+        registrationDetails.style.display = "block";
+        document.getElementById("displayFirstName").textContent = firstName;
+        document.getElementById("displayEmail").textContent = email;
+        document.getElementById("displayStudentId").textContent = studentId;
+        document.getElementById("displayPassword").textContent = password;
+
+        alert("Sign In successful!");
+    }
+}
+</script>
+</body>
+</html>

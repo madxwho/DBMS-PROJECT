@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Support</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+  <style>
+    body,html{
+      height: 100%;
+      margin: 10px;
+    }
+    body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center; 
+      font-family: 'Poppins', sans-serif;
+    }
+    .container {
+      width: 400px;
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.2); 
+      margin-bottom: 20px;
+    }
+    label {
+      display: block;
+      margin-bottom: 10px;
+    }
+    select, textarea {
+      width: 100%;
+      padding: 8px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+    button {
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      background-color: #000066;
+      color: #fff;
+      cursor: pointer;
+      font-family: 'Poppins', sans-serif;
+    }
+    button.cancel {
+      background-color: #000066;
+    }
+    #dataTable {
+      display: none; 
+      width: 100%;
+      border-collapse: collapse;
+      border: 1px solid #ccc;
+      margin-top: 20px; 
+    }
+    th, td {
+      padding: 8px;
+      border: 1px solid #ccc;
+      text-align: left;
+    }
+    th {
+      background-color: #f2f2f2;
+    }
+  </style>
+</head>
+<body>
+  <div class="space"></div> <!-- Spacer -->
+  <div id="container" class="container">
+    <label for="category">Category:</label>
+    <select id="category" name="category">
+      <option value="Health Problem">Health</option>
+      <option value="Personal Problem">Personal</option>
+      <option value="Internship Oppurtunities">Internship</option>
+    </select>
+    <label for="description">Description:</label>
+    <textarea id="description" name="description" rows="4"></textarea>
+    <div>
+      <button id="submitBtn">Submit</button>
+      <button class="cancel" id="cancelBtn">Cancel</button>
+    </div>
+  </div>
+
+  <table id="dataTable">
+    <thead>
+      <tr>
+        <th>Si No</th>
+        <th>Date</th>
+        <th>Category</th>
+        <th>Description</th>
+        <th>Status</th>
+        <th>Remark</th>
+      </tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+
+  <script>
+    var serialNumber = 0; // Initialize serial number counter
+
+    document.getElementById("submitBtn").onclick = function() {
+      var category = document.getElementById("category").value;
+      var description = document.getElementById("description").value;
+      var date = new Date().toLocaleDateString();
+
+      var tbody = document.querySelector("#dataTable tbody");
+
+      if (!tbody) {
+        tbody = document.createElement("tbody");
+        document.getElementById("dataTable").appendChild(tbody);
+      }
+
+      serialNumber++; // Increment serial number
+      var row = tbody.insertRow();
+      row.insertCell().textContent = serialNumber; 
+      row.insertCell().textContent = date;
+      row.insertCell().textContent = category;
+      row.insertCell().textContent = description;
+      row.insertCell().textContent = "Pending";
+      row.insertCell().textContent = "";
+
+      document.getElementById("dataTable").style.display = "table"; // Show the table
+
+      // Move the container to the top
+      document.getElementById("container").style.marginBottom = "20px"; // Adjusting margins
+      document.getElementById("container").style.marginTop = "0";
+    };
+
+    document.getElementById("cancelBtn").onclick = function() {
+      document.getElementById("description").value = ""; // Clear the description textarea
+    };
+  </script>
+</body>
+</html>
+
+
+
+
+

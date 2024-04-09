@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mentoring Web App</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="mh.css">
+<body>
+  <div class="container">
+    <div class="left-container">
+      <div class="profile-info">
+        <h2>Welcome, Name!</h2>
+        <p>Email: loveline@example.com</p>
+        <p>Phone: 123-456-7890</p>
+        <p>Department: ??</p>
+      </div>
+      <div class="profile-pic-container">
+        <img id="profile-picture-preview" src="anon.jpg" alt="Profile Picture">
+        <input type="file" id="profile-pic" name="profile-pic" accept="image/*" class="profile-pic-upload">
+        <div class="edit-label">Edit Profile Picture</div>
+      </div>
+    </div>
+    
+    
+    <div class="right-container">
+      <h2>Students</h2>
+      <div class="student-list">
+        <ul>
+          <li><a href="student1.html">Student 1</a></li>
+          <li><a href="student2.html">Student 2</a></li>
+          <li><a href="student3.html">Student 3</a></li>
+          <!-- Add more students as needed -->
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</body>
+</html>
+<script>
+  document.getElementById('profile-pic').addEventListener('change', function(event) {
+    const reader = new FileReader();
+    reader.onload = function() {
+      const output = document.getElementById('profile-picture-preview');
+      output.src = reader.result;
+      output.style.display = 'block'; // Make the image visible
+    };
+    reader.readAsDataURL(event.target.files[0]);
+  });
+  </script>
+  
